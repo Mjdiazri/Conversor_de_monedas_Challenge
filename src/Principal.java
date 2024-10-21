@@ -27,33 +27,30 @@ public class Principal {
                 case "1","4","5":
                     divisa = "USD";
                     System.out.println(divisa);
-                    Divisa nuevaDivisa = buscar.buscaDivisa(divisa);
-                    System.out.println(nuevaDivisa);
                     break;
 
                     //Se valida direccion api ok pero no muestra datos de la divisa
-//                case "2":
-//                    divisa = "ARS";
-//                    System.out.println(divisa);
-//                    Divisa nuevaDivisa1 = buscar.buscaDivisa(divisa);
-//                    System.out.println(nuevaDivisa1);
-//                    break;
-//
-//                case "3":
-//                    divisa = "BRL";
-//                    System.out.println(divisa);
-//                    Divisa nuevaDivisa2 = buscar.buscaDivisa(divisa);
-//                    System.out.println(nuevaDivisa2);
-//                    break;
-//
-//                case "6":
-//                    divisa = "COP";
-//                    System.out.println(divisa);
-//                    Divisa nuevaDivisa3 = buscar.buscaDivisa(divisa);
-//                    System.out.println(nuevaDivisa3);
-//                    break;
+                case "2":
+                    divisa = "ARS";
+                    System.out.println(divisa);
+                    break;
+
+                case "3":
+                    divisa = "BRL";
+                    System.out.println(divisa);
+                    break;
+
+                case "6":
+                    divisa = "COP";
+                    System.out.println(divisa);
+                    break;
+
+                default:
+                    System.out.println("Opcion no valida");
             }
 
+            Divisa nuevaDivisa = buscar.buscaDivisa(divisa);
+            System.out.println(nuevaDivisa);
 
         } finally {
             System.out.println("Finalizando");

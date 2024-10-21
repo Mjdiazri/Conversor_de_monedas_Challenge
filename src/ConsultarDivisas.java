@@ -9,17 +9,21 @@ public class ConsultarDivisas {
 
     public  Divisa buscaDivisa(String divisa){
         URI api = URI.create("https://v6.exchangerate-api.com/v6/2d6de6e910a63b8244320953/latest/" + divisa);
+        System.out.println(api);
 
         HttpClient usuario =HttpClient.newHttpClient();
         HttpRequest requerimiento = HttpRequest.newBuilder()
                 .uri(api)
                 .build();
-        System.out.println(requerimiento);
+
         try{
             HttpResponse<String> respuesta = usuario
                     .send(requerimiento, HttpResponse.BodyHandlers.ofString());
+            //System.out.println("Respuesta api: "+ respuesta.body());
             return new Gson().fromJson(respuesta.body(), Divisa.class);
+
         } catch (Exception e){
+            e.printStackTrace();
             throw new RuntimeException("Divisa no encontrada");
         }
     }

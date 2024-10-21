@@ -1,7 +1,6 @@
-import java.net.URI;
-import java.util.ArrayList;
+import java.util.Map;
 
 public record Divisa(String base_code,
                      String time_last_update_utc,
-                     ArrayList conversion_rates ) {
+                     Map conversion_rates ) {
 }
