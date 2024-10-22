@@ -18,7 +18,6 @@ public class ConsultarDivisas {
         try{
             HttpResponse<String> respuesta = usuario
                     .send(requerimiento, HttpResponse.BodyHandlers.ofString());
-            //System.out.println("Respuesta api: "+ respuesta.body());
             return new Gson().fromJson(respuesta.body(), Divisa.class);
 
         } catch (Exception e){
