@@ -1,3 +1,4 @@
+import java.util.Map;
 import java.util.Scanner;
 
 public class Principal {
@@ -23,26 +24,37 @@ public class Principal {
 
         try{
             String divisa = teclado.nextLine();
+            String divisa2 = "";
+
             switch (divisa) {
-                case "1","4","5":
+                case "1":
                     divisa = "USD";
-                    System.out.println(divisa);
+                    divisa2 = "ARS";
                     break;
 
-                    //Se valida direccion api ok pero no muestra datos de la divisa
                 case "2":
                     divisa = "ARS";
-                    System.out.println(divisa);
+                    divisa2 = "USD";
                     break;
 
                 case "3":
                     divisa = "BRL";
-                    System.out.println(divisa);
+                    divisa2 = "USD";
+                    break;
+
+                case "4":
+                    divisa = "USD";
+                    divisa2 = "BRL";
+                    break;
+
+                case "5":
+                    divisa = "USD";
+                    divisa2 = "COP";
                     break;
 
                 case "6":
                     divisa = "COP";
-                    System.out.println(divisa);
+                    divisa2 = "USD";
                     break;
 
                 default:
@@ -51,6 +63,17 @@ public class Principal {
 
             Divisa nuevaDivisa = buscar.buscaDivisa(divisa);
             System.out.println(nuevaDivisa);
+
+
+            Map<String, Double> conversionRates = nuevaDivisa.conversion_rates();
+            System.out.println("Valor de  " + divisa2 + ": " +  conversionRates.get(divisa2));
+
+            System.out.printf("Ingrese el valor a convertir de %s a %s", divisa, divisa2);
+            Double valorAConvertir = teclado.nextDouble();
+            double resultado = valorAConvertir * conversionRates.get(divisa2);
+            System.out.println("Total: " + resultado);
+
+            
 
         } finally {
             System.out.println("Finalizando");
